@@ -8,7 +8,12 @@ namespace tutorial.db;
 entity Books : cuid, managed {
         tutorialitle : String;
         author       : Association to Authors;
-        Chapters : Composition of Chapters on Chapters.book = $self;
+        genre        : String;
+        publishedAt  : Date;
+        pages        : Integer;
+        price        : Decimal(9, 2);
+        Chapters     : Composition of Chapters
+                               on Chapters.book = $self;
 }
 
 entity Authors : cuid, managed {
